@@ -1,0 +1,135 @@
+<project name="maven" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<property name="mavenrepo" value="file://m2repo" />
+	<property name="mavenrepoId" value="tmprepoid" />
+
+	<target name="install">
+		<antcall target="execute">
+			<param name="mvncommand" value="org.apache.maven.plugins:maven-install-plugin:2.3.1:install-file" />
+		</antcall>
+	</target>
+
+	<target name="deploy">
+		<antcall target="execute">
+			<param name="mvncommand" value="org.apache.maven.plugins:maven-deploy-plugin:2.5:deploy-file" />
+		</antcall>
+	</target>
+
+	<target name="execute">
+
+		<!-- parent.pom -->
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-parent.pom" />
+			<arg value="-Dfile=gdx-parent.pom" />
+		</artifact:mvn>
+
+		<!-- gdx.jar -->
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx.pom" />
+			<arg value="-Dfile=gdx.jar" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx.pom" />
+			<arg value="-Dfile=gdx-sources.jar" />
+			<arg value="-Dclassifier=sources" />
+		</artifact:mvn>
+
+		<!-- gdx natives -->
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-platform.pom" />
+			<arg value="-Dfile=gdx-platform-natives-win.jar" />
+			<arg value="-Dclassifier=natives-win" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-platform.pom" />
+			<arg value="-Dfile=gdx-platform-natives-linux.jar" />
+			<arg value="-Dclassifier=natives-linux" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-platform.pom" />
+			<arg value="-Dfile=gdx-platform-natives-mac.jar" />
+			<arg value="-Dclassifier=natives-mac" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-platform.pom" />
+			<arg value="-Dfile=gdx-platform-natives-armeabi.jar" />
+			<arg value="-Dclassifier=natives-armeabi" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-platform.pom" />
+			<arg value="-Dfile=gdx-platform-natives-armeabi-v7a.jar" />
+			<arg value="-Dclassifier=natives-armeabi-v7a" />
+		</artifact:mvn>
+
+		<!-- gdx_backends lwjgl-->
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-backend-lwjgl.pom" />
+			<arg value="-Dfile=gdx-backend-lwjgl.jar" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-backend-lwjgl.pom" />
+			<arg value="-Dfile=gdx-backend-lwjgl-sources.jar" />
+			<arg value="-Dclassifier=sources" />
+		</artifact:mvn>
+		<!-- gdx_backends android-->
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-backend-android.pom" />
+			<arg value="-Dfile=gdx-backend-android.jar" />
+		</artifact:mvn>
+
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=gdx-backend-android.pom" />
+			<arg value="-Dfile=gdx-backend-android-sources.jar" />
+			<arg value="-Dclassifier=sources" />
+		</artifact:mvn>
+
+	</target>
+
+</project>

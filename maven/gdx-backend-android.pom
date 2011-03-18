@@ -1,0 +1,28 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.badlogic.gdx</groupId>
+		<artifactId>parent</artifactId>
+		<version>@VERSION@</version>
+	</parent>
+	<artifactId>gdx-android-backend</artifactId>
+	<version>@VERSION@</version>
+	<packaging>jar</packaging>
+	<name>Android/desktop game development framework android backend</name>
+	<description>Android/desktop game development framework android backend</description>
+	<url>http://code.google.com/p/libgdx/</url>
+	<dependencies>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-armeabi</classifier>
+		</dependency>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-armeabi-v7a</classifier>
+		</dependency>
+	</dependencies>
+</project>

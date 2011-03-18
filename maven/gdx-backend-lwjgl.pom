@@ -1,0 +1,55 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.badlogic.gdx</groupId>
+		<artifactId>parent</artifactId>
+		<version>@VERSION@</version>
+	</parent>
+	<artifactId>gdx-lwjgl-backend</artifactId>
+	<version>@VERSION@</version>
+	<packaging>jar</packaging>
+	<name>Android/desktop game development framework lwjgl backend</name>
+	<description>Android/desktop game development framework lwjgl backend</description>
+	<url>http://code.google.com/p/libgdx/</url>
+	<dependencies>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-win</classifier>
+		</dependency>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-linux</classifier>
+		</dependency>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-mac</classifier>
+		</dependency>
+		<dependency>
+			<groupId>{project.groupId}</groupId>
+			<artifactId>gdx-platform</artifactId>
+			<version>{project.version}</version>
+			<classifier>natives-mac</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
+			<version>2.6.0-GEMSERK</version>
+		</dependency>
+		<dependency>
+			<groupId>jorbis</groupId>
+			<artifactId>jorbis</artifactId>
+			<version>0.0.17</version>
+		</dependency>
+		<dependency>
+			<groupId>net.javazoom.jlayer</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
+</project>

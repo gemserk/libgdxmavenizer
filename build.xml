@@ -1,0 +1,110 @@
+<project name="Libgdx" default="all" basedir=".">
+	<property name="base" location="." />
+	<property name="source" location="${base}/libgdx" />
+	<property name="target" location="${base}/target" />
+	<property name="temp" location="${target}/tmp" />
+	<property name="maven" location="${base}/maven" />
+	<property name="release" value="false" />
+
+	<target name="clean">
+		<delete dir="${target}" quiet="true" failonerror="false" taskname="cleaning target" />
+	</target>
+
+	<target name="init" depends="clean">
+		<mkdir dir="${target}" />
+		<mkdir dir="${temp}" />
+	</target>
+
+	<target name="copysame" depends="init">
+		<copy todir="${target}">
+			<fileset dir="${source}">
+				<include name="gdx.jar" />
+				<include name="gdx-sources.jar" />
+				<include name="gdx-backend-android.jar" />
+				<include name="gdx-backend-android-sources.jar" />
+				<include name="gdx-backend-lwjgl-sources.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="createcleanbackends" depends="init">
+		<jar destfile="${target}/gdx-backend-lwjgl.jar">
+			<zipfileset src="${source}/gdx-backend-lwjgl.jar">
+				<include name="com/badlogic/**" />
+			</zipfileset>
+		</jar>
+	</target>
+
+
+	<target name="createlibgdxnativespc" depends="init">
+		<property name="nativespcdir" location="${temp}/nativespc" />
+		<mkdir dir="${nativespcdir}" />
+		<unzip dest="${nativespcdir}" src="${source}/gdx-natives.jar" />
+		<jar destfile="${target}/gdx-platform-natives-win.jar" taskname="gdx-platform-natives-win.jar">
+			<fileset dir="${nativespcdir}">
+				<include name="*.dll" />
+			</fileset>
+		</jar>
+		<jar destfile="${target}/gdx-platform-natives-linux.jar" taskname="gdx-platform-natives-linux.jar">
+			<fileset dir="${nativespcdir}">
+				<include name="*.so" />
+			</fileset>
+		</jar>
+		<jar destfile="${target}/gdx-platform-natives-mac.jar" taskname="gdx-platform-natives-mac.jar">
+			<fileset dir="${nativespcdir}">
+				<include name="*.dylyb" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="createlibgdxnativesandroid" depends="init">
+
+		<jar destfile="${target}/gdx-platform-natives-armeabi.jar" taskname="gdx-platform-natives-armeabi.jar">
+			<fileset dir="${source}/armeabi">
+				<include name="*" />
+			</fileset>
+		</jar>
+		<jar destfile="${target}/gdx-platform-natives-armeabi-v7a.jar" taskname="gdx-platform-natives-armeabi-v7a.jar">
+			<fileset dir="${source}/armeabi">
+				<include name="*" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="version">
+		<script language="javascript" classpath="${source}/gdx.jar">
+			<![CDATA[
+						importPackage(java.lang);
+						var version = com.badlogic.gdx.Version.VERSION
+						if(project.getProperty("release")=="false")
+							version=version + "-SNAPSHOT"
+			
+						System.out.println("LIBGDX Version: " + version);
+						project.setNewProperty("version",version);
+					]]>
+		</script>
+	</target>
+
+	<target name="copymavenpoms" depends="version">
+		<copy todir="${target}">
+			<fileset dir="${maven}">
+				<include name="*.pom" />
+			</fileset>
+			<filterset>
+				<filter token="VERSION" value="${version}" />
+			</filterset>
+		</copy>
+	</target>
+
+	<target name="copymavendeploybuild">
+		<copy todir="${target}">
+			<fileset dir="${maven}">
+				<include name="build.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="all" depends="version, copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild">
+		<echo message="${version}" />
+	</target>
+</project>

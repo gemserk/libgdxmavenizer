@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.badlogic.gdx</groupId>
+		<artifactId>parent</artifactId>
+		<version>@VERSION@</version>
+	</parent>
+	<artifactId>gdx</artifactId>
+	<version>@VERSION@</version>
+	<packaging>jar</packaging>
+	<name>Android/desktop game development framework</name>
+	<description>Android/desktop game development framework</description>
+	<url>http://code.google.com/p/libgdx/</url>
+</project>

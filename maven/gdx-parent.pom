@@ -1,0 +1,27 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.badlogic.gdx</groupId>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+	<name>Android/desktop game development framework</name>
+	<version>@VERSION@</version>
+	<description>Android/desktop game development framework</description>
+	<url>http://code.google.com/p/libgdx/</url>
+	<licenses>
+		<license>
+			<name>Apache Licence 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>http://code.google.com/p/libgdx/source/browse/</url>
+		<connection>http://libgdx.googlecode.com/svn/trunk/ </connection>
+	</scm>
+	<developers>
+		<developer>
+			<id>Developers</id>
+			<url>http://code.google.com/p/libgdx/people/list</url>
+		</developer>
+	</developers>
+</project>
