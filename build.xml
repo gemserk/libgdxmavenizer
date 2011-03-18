@@ -6,11 +6,40 @@
 	<property name="maven" location="${base}/maven" />
 	<property name="release" value="false" />
 
+
+	<target name="downloadnightly" depends="checkinitialconditions">
+		<input message="All data in the ${source} folder will be deleted. Continue? " validargs="yes,no" addproperty="do.delete" />
+		<condition property="do.abort">
+			<equals arg1="no" arg2="${do.delete}" />
+		</condition>
+		<fail if="do.abort">Build aborted by user.</fail>
+		<delete dir="${source}" quiet="true" failonerror="false" taskname="cleaning source" />
+		<mkdir dir="${source}" />
+		<tstamp />
+		<property name="nightlytimestamp" value="${DSTAMP}" />
+		<property name="nightlyfilename" value="libgdx-nightly-${nightlytimestamp}.zip" />
+		<get dest="${source}/${nightlyfilename}" src="http://libgdx.l33tlabs.org/${nightlyfilename}" verbose="true"/>
+		<unzip dest="${source}" src="${source}/${nightlyfilename}" />
+	</target>
+
+
+	<target name="checkinitialconditions">
+		<condition property="sourceexists">
+			<available file="${source}" type="dir" />
+		</condition>
+
+	</target>
+
+	<target name="failifnotpresentsource" depends="checkinitialconditions">
+		<fail unless="${sourceexists}" message="put libgdx in the ${source} dir" />
+	</target>
+
+
 	<target name="clean">
 		<delete dir="${target}" quiet="true" failonerror="false" taskname="cleaning target" />
 	</target>
 
-	<target name="init" depends="clean">
+	<target name="init" depends="failifnotpresentsource, clean">
 		<mkdir dir="${target}" />
 		<mkdir dir="${temp}" />
 	</target>
@@ -104,7 +133,7 @@
 		</copy>
 	</target>
 
-	<target name="all" depends="version, copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild">
+	<target name="all" depends="copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild">
 		<echo message="${version}" />
 	</target>
 </project>
