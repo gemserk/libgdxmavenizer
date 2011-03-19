@@ -5,7 +5,7 @@
 		<artifactId>parent</artifactId>
 		<version>@VERSION@</version>
 	</parent>
-	<artifactId>gdx-lwjgl-backend</artifactId>
+	<artifactId>gdx-backend-lwjgl</artifactId>
 	<version>@VERSION@</version>
 	<packaging>jar</packaging>
 	<name>Android/desktop game development framework lwjgl backend</name>
@@ -13,31 +13,31 @@
 	<url>http://code.google.com/p/libgdx/</url>
 	<dependencies>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-win</classifier>
 		</dependency>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-linux</classifier>
 		</dependency>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-mac</classifier>
 		</dependency>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-mac</classifier>
 		</dependency>
 		<dependency>
-			<groupId>org.lwjgl.lwjgl</groupId>
+			<groupId>org.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
 			<version>2.6.0-GEMSERK</version>
 		</dependency>

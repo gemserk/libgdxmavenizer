@@ -5,7 +5,7 @@
 		<artifactId>parent</artifactId>
 		<version>@VERSION@</version>
 	</parent>
-	<artifactId>gdx-android-backend</artifactId>
+	<artifactId>gdx-backend-android</artifactId>
 	<version>@VERSION@</version>
 	<packaging>jar</packaging>
 	<name>Android/desktop game development framework android backend</name>
@@ -13,15 +13,15 @@
 	<url>http://code.google.com/p/libgdx/</url>
 	<dependencies>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-armeabi</classifier>
 		</dependency>
 		<dependency>
-			<groupId>{project.groupId}</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
-			<version>{project.version}</version>
+			<version>${project.version}</version>
 			<classifier>natives-armeabi-v7a</classifier>
 		</dependency>
 	</dependencies>
