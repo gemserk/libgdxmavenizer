@@ -17,12 +17,14 @@
 			<artifactId>gdx-platform</artifactId>
 			<version>${project.version}</version>
 			<classifier>natives-armeabi</classifier>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>gdx-platform</artifactId>
 			<version>${project.version}</version>
 			<classifier>natives-armeabi-v7a</classifier>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 </project>
