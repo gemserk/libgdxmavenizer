@@ -129,11 +129,20 @@
 		<copy todir="${target}">
 			<fileset dir="${maven}">
 				<include name="build.xml" />
+				<include name="maven-ant-tasks-2.1.1.jar" />
 			</fileset>
 		</copy>
 	</target>
 
-	<target name="all" depends="copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild">
+	<target name="copymavenanttasks">
+		<copy todir="${target}">
+			<fileset dir="${base}">
+				<include name="maven-ant-tasks-2.1.1.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="all" depends="copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild, copymavenanttasks">
 		<echo message="${version}" />
 	</target>
 
