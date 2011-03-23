@@ -18,7 +18,7 @@
 		<tstamp />
 		<property name="nightlytimestamp" value="${DSTAMP}" />
 		<property name="nightlyfilename" value="libgdx-nightly-${nightlytimestamp}.zip" />
-		<get dest="${source}/${nightlyfilename}" src="http://libgdx.l33tlabs.org/${nightlyfilename}" verbose="true"/>
+		<get dest="${source}/${nightlyfilename}" src="http://libgdx.l33tlabs.org/${nightlyfilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${nightlyfilename}" />
 	</target>
 
@@ -135,5 +135,13 @@
 
 	<target name="all" depends="copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild">
 		<echo message="${version}" />
+	</target>
+
+	<target name="install" depends="all">
+		<ant antfile="${target}/build.xml" target="install" inheritall="false" useNativeBasedir="true" />
+	</target>
+
+	<target name="deploy" depends="all">
+		<ant antfile="${target}/build.xml" target="deploy" inheritall="false" useNativeBasedir="true" />
 	</target>
 </project>
