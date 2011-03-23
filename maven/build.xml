@@ -2,7 +2,7 @@
 	<path id="maven-ant-tasks.classpath" path="maven-ant-tasks-2.1.1.jar" />
 	<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="maven-ant-tasks.classpath" />
 
-	<property name="mavenrepo" value="file://m2repo" />
+	<property name="mavenrepo" value="file://${basedir}/m2repo" />
 	<property name="mavenrepoId" value="tmprepoid" />
 
 	<target name="install">
@@ -27,6 +27,7 @@
 			<arg value="-DrepositoryId=${mavenrepoId}" />
 			<arg value="-DpomFile=${basedir}/gdx-parent.pom" />
 			<arg value="-Dfile=${basedir}/gdx-parent.pom" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<!-- gdx.jar -->
@@ -37,6 +38,7 @@
 			<arg value="-DrepositoryId=${mavenrepoId}" />
 			<arg value="-DpomFile=${basedir}/gdx.pom" />
 			<arg value="-Dfile=${basedir}/gdx.jar" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -46,6 +48,7 @@
 			<arg value="-DpomFile=${basedir}/gdx.pom" />
 			<arg value="-Dfile=${basedir}/gdx-sources.jar" />
 			<arg value="-Dclassifier=sources" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<!-- gdx natives -->
@@ -57,6 +60,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-platform.pom" />
 			<arg value="-Dfile=${basedir}/gdx-platform-natives-win.jar" />
 			<arg value="-Dclassifier=natives-win" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -66,6 +70,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-platform.pom" />
 			<arg value="-Dfile=${basedir}/gdx-platform-natives-linux.jar" />
 			<arg value="-Dclassifier=natives-linux" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -75,6 +80,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-platform.pom" />
 			<arg value="-Dfile=${basedir}/gdx-platform-natives-mac.jar" />
 			<arg value="-Dclassifier=natives-mac" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -84,6 +90,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-platform.pom" />
 			<arg value="-Dfile=${basedir}/gdx-platform-natives-armeabi.jar" />
 			<arg value="-Dclassifier=natives-armeabi" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -93,6 +100,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-platform.pom" />
 			<arg value="-Dfile=${basedir}/gdx-platform-natives-armeabi-v7a.jar" />
 			<arg value="-Dclassifier=natives-armeabi-v7a" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<!-- gdx_backends lwjgl-->
@@ -103,6 +111,7 @@
 			<arg value="-DrepositoryId=${mavenrepoId}" />
 			<arg value="-DpomFile=${basedir}/gdx-backend-lwjgl.pom" />
 			<arg value="-Dfile=${basedir}/gdx-backend-lwjgl.jar" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -112,6 +121,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-backend-lwjgl.pom" />
 			<arg value="-Dfile=${basedir}/gdx-backend-lwjgl-sources.jar" />
 			<arg value="-Dclassifier=sources" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 		<!-- gdx_backends android-->
 
@@ -121,6 +131,7 @@
 			<arg value="-DrepositoryId=${mavenrepoId}" />
 			<arg value="-DpomFile=${basedir}/gdx-backend-android.pom" />
 			<arg value="-Dfile=${basedir}/gdx-backend-android.jar" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 		<artifact:mvn>
@@ -130,6 +141,7 @@
 			<arg value="-DpomFile=${basedir}/gdx-backend-android.pom" />
 			<arg value="-Dfile=${basedir}/gdx-backend-android-sources.jar" />
 			<arg value="-Dclassifier=sources" />
+			<arg value="-DuniqueVersion=false" />
 		</artifact:mvn>
 
 	</target>
