@@ -81,7 +81,7 @@
 		</jar>
 		<jar destfile="${target}/gdx-platform-natives-mac.jar" taskname="gdx-platform-natives-mac.jar">
 			<fileset dir="${nativespcdir}">
-				<include name="*.dylyb" />
+				<include name="*.dylib" />
 			</fileset>
 		</jar>
 	</target>
