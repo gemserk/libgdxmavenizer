@@ -146,10 +146,6 @@
 		<echo message="${version}" />
 	</target>
 
-	<target name="install" depends="all">
-		<ant antfile="${target}/build.xml" target="install" inheritall="false" useNativeBasedir="true" />
-	</target>
-
 	<target name="deploy" depends="all">
 		<ant antfile="${target}/build.xml" target="deploy" inheritall="false" useNativeBasedir="true" />
 	</target>
