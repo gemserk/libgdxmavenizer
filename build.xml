@@ -65,6 +65,8 @@
 		<jar destfile="${target}/gdx-backend-lwjgl.jar">
 			<zipfileset src="${source}/gdx-backend-lwjgl.jar">
 				<include name="com/badlogic/**" />
+				<include name="com/jcraft/**" />
+				<include name="javazoom/**" />
 			</zipfileset>
 		</jar>
 	</target>
