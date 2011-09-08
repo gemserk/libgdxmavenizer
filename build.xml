@@ -51,19 +51,25 @@
 				<include name="gdx-sources.jar" />
 				<include name="gdx-backend-android.jar" />
 				<include name="gdx-backend-android-sources.jar" />
-				<include name="gdx-backend-lwjgl-sources.jar" />
 			</fileset>
 		</copy>
+	</target>
+
+	<target name="createcombinedsources" depends="init">
+		<zip destfile="${target}/gdx-backend-lwjgl-sources.jar" duplicate="preserve">
+			<zipgroupfileset dir="${source}" includes="gdx-backend-lwjgl-sources.jar,gdx-openal-sources.jar"/>
+		</zip>
 	</target>
 
 	<target name="createcleanbackends" depends="init">
 		<jar destfile="${target}/gdx-backend-lwjgl.jar">
 			<zipfileset src="${source}/gdx-backend-lwjgl.jar">
 				<include name="com/badlogic/**" />
+				<include name="com/jcraft/**" />
+				<include name="javazoom/**" />
 			</zipfileset>
 		</jar>
 	</target>
-
 
 	<target name="createlibgdxnativespc" depends="init">
 		<property name="nativespcdir" location="${temp}/nativespc" />
@@ -142,7 +148,7 @@
 		</copy>
 	</target>
 
-	<target name="all" depends="copysame,createcleanbackends,  createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild, copymavenanttasks">
+	<target name="all" depends="copysame, createcleanbackends, createcombinedsources, createlibgdxnativespc, createlibgdxnativesandroid, copymavenpoms, copymavendeploybuild, copymavenanttasks">
 		<echo message="${version}" />
 	</target>
 
