@@ -5,7 +5,8 @@
 	<property name="temp" location="${target}/tmp" />
 	<property name="maven" location="${base}/maven" />
 	<property name="release" value="false" />
-
+	<property name="url_nightlies" value="http://libgdx.l33tlabs.org"/>
+	<!-- property name="url_nightlies" value="http://libgdx.badlogicgames.com/nightlies"/ -->
 
 	<target name="downloadnightly" depends="checkinitialconditions">
 		<input message="All data in the ${source} folder will be deleted. Continue? " validargs="yes,no" addproperty="do.delete" />
@@ -18,7 +19,7 @@
 		<tstamp />
 		<property name="nightlytimestamp" value="${DSTAMP}" />
 		<property name="nightlyfilename" value="libgdx-nightly-${nightlytimestamp}.zip" />
-		<get dest="${source}/${nightlyfilename}" src="http://libgdx.l33tlabs.org/${nightlyfilename}" verbose="true" />
+		<get dest="${source}/${nightlyfilename}" src="${url_nightlies}/${nightlyfilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${nightlyfilename}" />
 	</target>
 
