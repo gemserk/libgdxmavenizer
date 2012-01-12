@@ -47,9 +47,11 @@
 		<copy todir="${target}">
 			<fileset dir="${source}">
 				<include name="gdx.jar" />
-				<include name="sources/gdx-sources.jar" />
 				<include name="gdx-backend-android.jar" />
-				<include name="sources/gdx-backend-android-sources.jar" />
+			</fileset>
+			<fileset dir="${source}/sources">
+				<include name="gdx-sources.jar" />
+				<include name="gdx-backend-android-sources.jar" />
 			</fileset>
 		</copy>
 	</target>
