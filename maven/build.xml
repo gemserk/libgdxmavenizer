@@ -7,7 +7,7 @@
 
 	<target name="deploy">
 		<antcall target="execute">
-			<param name="mvncommand" value="org.apache.maven.plugins:maven-deploy-plugin:2.7-GEMSERK:deploy-file" />
+			<param name="mvncommand" value="org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy-file" />
 		</antcall>
 	</target>
 
