@@ -16,8 +16,7 @@
 		<delete dir="${source}" quiet="true" failonerror="false" taskname="cleaning source" />
 		<mkdir dir="${source}" />
 		<tstamp />
-		<property name="nightlytimestamp" value="${DSTAMP}" />
-		<property name="nightlyfilename" value="libgdx-nightly-${nightlytimestamp}.zip" />
+		<property name="nightlyfilename" value="libgdx-nightly-latest.zip" />
 		<get dest="${source}/${nightlyfilename}" src="${url_nightlies}/${nightlyfilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${nightlyfilename}" />
 	</target>
