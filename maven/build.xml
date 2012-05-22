@@ -76,6 +76,17 @@
 			<arg value="-Dclassifiers=sources" />
 			<arg value="-Dfiles=${basedir}/gdx-backend-android-sources.jar" />
 		</artifact:mvn>
+		
+		<artifact:mvn>
+				<arg value="${mvncommand}" />
+				<arg value="-Durl=${mavenrepo}" />
+				<arg value="-DrepositoryId=${mavenrepoId}" />
+				<arg value="-DpomFile=${basedir}/gdx-tools.pom" />
+				<arg value="-Dfile=${basedir}/gdx-tools.jar" />
+				<arg value="-Dtypes=jar" />
+				<arg value="-Dclassifiers=sources" />
+				<arg value="-Dfiles=${basedir}/gdx-tools-sources.jar" />
+			</artifact:mvn>
 	</target>
 
 </project>
