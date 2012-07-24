@@ -7,6 +7,8 @@
 	<property name="release" value="false" />
 	<property name="url_nightlies" value="http://libgdx.badlogicgames.com/nightlies" />
 
+        <artifact:install-provider artifactId="wagon-webdav" version="1.0-beta-2"/>
+
 	<target name="downloadnightly" depends="checkinitialconditions">
 		<input message="All data in the ${source} folder will be deleted. Continue? " validargs="yes,no" addproperty="do.delete" />
 		<condition property="do.abort">
