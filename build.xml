@@ -32,7 +32,7 @@
 		<mkdir dir="${source}" />
 		<tstamp />
 		<property name="releasefilename" value=" libgdx-0.9.5.zip" />
-		<get dest="${source}/${nightlyfilename}" src="${url_releases}/${releasefilename}" verbose="true" />
+		<get dest="${source}/${releasefilename}" src="${url_releases}/${releasefilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${releasefilename}" />
 	</target>
 
