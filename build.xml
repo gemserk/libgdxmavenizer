@@ -31,7 +31,7 @@
 		<delete dir="${source}" quiet="true" failonerror="false" taskname="cleaning source" />
 		<mkdir dir="${source}" />
 		<tstamp />
-		<property name="releasefilename" value="libgdx-0.9.5.zip" />
+		<property name="releasefilename" value="libgdx-0.9.4.zip" />
 		<get dest="${source}/${releasefilename}" src="${url_releases}/${releasefilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${releasefilename}" />
 	</target>
