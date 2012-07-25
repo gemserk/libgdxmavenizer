@@ -6,6 +6,7 @@
 	<property name="maven" location="${base}/maven" />
 	<property name="release" value="false" />
 	<property name="url_nightlies" value="http://libgdx.badlogicgames.com/nightlies" />
+	<property name="url_releases" value="http://libgdx.googlecode.com/files" />
 
 	<target name="downloadnightly" depends="checkinitialconditions">
 		<input message="All data in the ${source} folder will be deleted. Continue? " validargs="yes,no" addproperty="do.delete" />
@@ -19,6 +20,20 @@
 		<property name="nightlyfilename" value="libgdx-nightly-latest.zip" />
 		<get dest="${source}/${nightlyfilename}" src="${url_nightlies}/${nightlyfilename}" verbose="true" />
 		<unzip dest="${source}" src="${source}/${nightlyfilename}" />
+	</target>
+	
+	<target name="downloadrelease" depends="checkinitialconditions">
+		<input message="All data in the ${source} folder will be deleted. Continue? " validargs="yes,no" addproperty="do.delete" />
+		<condition property="do.abort">
+			<equals arg1="no" arg2="${do.delete}" />
+		</condition>
+		<fail if="do.abort">Build aborted by user.</fail>
+		<delete dir="${source}" quiet="true" failonerror="false" taskname="cleaning source" />
+		<mkdir dir="${source}" />
+		<tstamp />
+		<property name="releasefilename" value=" libgdx-0.9.5.zip" />
+		<get dest="${source}/${nightlyfilename}" src="${url_releases}/${releasefilename}" verbose="true" />
+		<unzip dest="${source}" src="${source}/${releasefilename}" />
 	</target>
 
 
