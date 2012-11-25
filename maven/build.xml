@@ -77,6 +77,19 @@
 			<arg value="-Dfiles=${basedir}/gdx-backend-android-sources.jar" />
 		</artifact:mvn>
 		
+		<!-- backend gwt -->
+		<artifact:mvn>
+			<arg value="${mvncommand}" />
+			<arg value="-Durl=${mavenrepo}" />
+			<arg value="-DrepositoryId=${mavenrepoId}" />
+			<arg value="-DpomFile=${basedir}/gdx-backend-gwt.pom" />
+			<arg value="-Dfile=${basedir}/gdx-backend-gwt.jar" />
+			<arg value="-Dtypes=jar" />
+			<arg value="-Dclassifiers=sources" />
+			<arg value="-Dfiles=${basedir}/gdx-backend-gwt-sources.jar" />
+		</artifact:mvn>
+		
+		<!-- tools extension -->
 		<artifact:mvn>
 				<arg value="${mvncommand}" />
 				<arg value="-Durl=${mavenrepo}" />

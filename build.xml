@@ -52,10 +52,12 @@
 			<fileset dir="${source}">
 				<include name="gdx.jar" />
 				<include name="gdx-backend-android.jar" />
+				<include name="gdx-backend-gwt.jar" />
 			</fileset>
 			<fileset dir="${source}/sources">
 				<include name="gdx-sources.jar" />
 				<include name="gdx-backend-android-sources.jar" />
+				<include name="gdx-backend-gwt-sources.jar" />
 			</fileset>
 			<fileset dir="${source}/extensions/">
 				<include name="gdx-tools.jar" />
