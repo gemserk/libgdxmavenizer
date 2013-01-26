@@ -59,10 +59,10 @@
 				<include name="gdx-backend-android-sources.jar" />
 				<include name="gdx-backend-gwt-sources.jar" />
 			</fileset>
-			<fileset dir="${source}/extensions/">
+			<fileset dir="${source}/extensions/gdx-tools">
 				<include name="gdx-tools.jar" />
 			</fileset>
-			<fileset dir="${source}/extensions/sources/">
+			<fileset dir="${source}/extensions/gdx-tools/sources/">
 				<include name="gdx-tools-sources.jar" />
 			</fileset>
 		</copy>
