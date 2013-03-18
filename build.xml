@@ -80,6 +80,7 @@
 				<include name="com/badlogic/**" />
 				<include name="com/jcraft/**" />
 				<include name="javazoom/**" />
+				<include name="**/*.ser" />
 			</zipfileset>
 		</jar>
 	</target>
