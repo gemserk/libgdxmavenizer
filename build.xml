@@ -34,7 +34,7 @@
 	</target>
 
 	<target name="failifnotpresentsource" depends="checkinitialconditions">
-		<fail unless="${sourceexists}" message="put libgdx in the ${source} dir, you can use 'ant downloadnightly' to download the nightly build" />
+		<fail unless="${sourceexists}" message="put libgdx in the ${source} dir, you can use 'ant download' to download the nightly build" />
 	</target>
 
 
